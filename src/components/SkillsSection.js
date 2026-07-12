@@ -1,15 +1,18 @@
 const skillCategories = [
     {
         title: "Programming",
-        skills: ["Python", "JavaScript", "C++", "C"]
+        skills: ["Python", "JavaScript", "C++", "C"],
+        chipClass: "chip-cyan"
     },
     {
         title: "Web Development",
-        skills: ["React.js", "Node.js", "Django", "HTML5 / CSS3", "Full-Stack Development"]
+        skills: ["React.js", "Node.js", "Django", "HTML5 / CSS3", "Full-Stack Development"],
+        chipClass: "chip-purple"
     },
     {
         title: "AI & Machine Learning",
-        skills: ["Machine Learning", "Pandas & NumPy", "Scikit-learn", "TensorFlow"]
+        skills: ["Machine Learning", "Pandas & NumPy", "Scikit-learn", "TensorFlow"],
+        chipClass: "chip-indigo"
     }
 ];
 
@@ -19,21 +22,21 @@ function Skills() {
             <h2 className="gradient-text" style={{ fontSize: "40px", marginBottom: "50px" }}>My Skills</h2>
 
             <div style={{
-                display: "flex",
-                justifyContent: "center",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
                 gap: "40px",
-                flexWrap: "wrap",
-                maxWidth: "1200px",
-                margin: "0 auto"
+                maxWidth: "1100px",
+                margin: "0 auto",
+                width: "100%"
             }}>
                 {skillCategories.map((category, index) => (
-                    <div key={index} className="glass-card animate-fade-in" style={{ padding: "40px", width: "350px", textAlign: "left" }}>
+                    <div key={index} className="glass-card animate-fade-in" style={{ padding: "40px", textAlign: "left", display: "flex", flexDirection: "column" }}>
                         <h3 style={{ fontSize: "24px", marginBottom: "25px", color: "var(--text-primary)" }}>
                             {category.title}
                         </h3>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
                             {category.skills.map((skill, sIndex) => (
-                                <span key={sIndex} className="skill-chip">
+                                <span key={sIndex} className={`skill-chip ${category.chipClass}`}>
                                     {skill}
                                 </span>
                             ))}

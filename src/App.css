@@ -74,11 +74,8 @@ html {
   animation: fadeIn 0.8s ease forwards;
 }
 
-/* Skill Chips */
+/* Skill Chips Base */
 .skill-chip {
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  color: var(--accent-color);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 14px;
@@ -88,9 +85,41 @@ html {
   display: inline-block;
 }
 
-.skill-chip:hover {
-  background: var(--accent-color);
+/* Programming Chips (Cyan) */
+.chip-cyan {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+.chip-cyan:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
+}
+
+/* Web Dev Chips (Purple) */
+.chip-purple {
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+}
+.chip-purple:hover {
+  background: #8b5cf6;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+/* AI/ML Chips (Indigo) */
+.chip-indigo {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #6366f1;
+}
+.chip-indigo:hover {
+  background: #6366f1;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }
