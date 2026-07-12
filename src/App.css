@@ -73,3 +73,24 @@ html {
 .animate-fade-in {
   animation: fadeIn 0.8s ease forwards;
 }
+
+/* Skill Chips */
+.skill-chip {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: var(--accent-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: default;
+  display: inline-block;
+}
+
+.skill-chip:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}

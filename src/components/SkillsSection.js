@@ -1,3 +1,18 @@
+const skillCategories = [
+    {
+        title: "Programming",
+        skills: ["Python", "JavaScript", "C++", "C"]
+    },
+    {
+        title: "Web Development",
+        skills: ["React.js", "Node.js", "Django", "HTML5 / CSS3", "Full-Stack Development"]
+    },
+    {
+        title: "AI & Machine Learning",
+        skills: ["Machine Learning", "Pandas & NumPy", "Scikit-learn", "TensorFlow"]
+    }
+];
+
 function Skills() {
     return (
         <section id="skills" style={{ padding: "100px 60px", textAlign: "center" }}>
@@ -7,30 +22,24 @@ function Skills() {
                 display: "flex",
                 justifyContent: "center",
                 gap: "40px",
-                flexWrap: "wrap"
+                flexWrap: "wrap",
+                maxWidth: "1200px",
+                margin: "0 auto"
             }}>
-
-                <div className="card" style={{ padding: "40px", width: "280px", textAlign: "left" }}>
-                    <h3 style={{ fontSize: "24px", marginBottom: "20px", color: "var(--text-primary)" }}>Programming</h3>
-                    <p style={{ color: "var(--accent-color)", fontWeight: "600", marginBottom: "10px" }}>Python</p>
-                    <p style={{ color: "var(--text-secondary)", marginBottom: "10px" }}>JavaScript</p>
-                    <p style={{ color: "var(--text-secondary)", marginBottom: "10px" }}>C++</p>
-                </div>
-
-                <div className="card" style={{ padding: "40px", width: "280px", textAlign: "left" }}>
-                    <h3 style={{ fontSize: "24px", marginBottom: "20px", color: "var(--text-primary)" }}>AI / ML</h3>
-                    <p style={{ color: "var(--accent-color)", fontWeight: "600", marginBottom: "10px" }}>Pandas & NumPy</p>
-                    <p style={{ color: "var(--text-secondary)", marginBottom: "10px" }}>Scikit-learn</p>
-                    <p style={{ color: "var(--text-secondary)", marginBottom: "10px" }}>TensorFlow</p>
-                </div>
-
-                <div className="card" style={{ padding: "40px", width: "280px", textAlign: "left" }}>
-                    <h3 style={{ fontSize: "24px", marginBottom: "20px", color: "var(--text-primary)" }}>Web Dev</h3>
-                    <p style={{ color: "var(--accent-color)", fontWeight: "600", marginBottom: "10px" }}>React.js</p>
-                    <p style={{ color: "var(--text-secondary)", marginBottom: "10px" }}>HTML5 / CSS3</p>
-                    <p style={{ color: "var(--text-secondary)", marginBottom: "10px" }}>Node.js</p>
-                </div>
-
+                {skillCategories.map((category, index) => (
+                    <div key={index} className="glass-card animate-fade-in" style={{ padding: "40px", width: "350px", textAlign: "left" }}>
+                        <h3 style={{ fontSize: "24px", marginBottom: "25px", color: "var(--text-primary)" }}>
+                            {category.title}
+                        </h3>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                            {category.skills.map((skill, sIndex) => (
+                                <span key={sIndex} className="skill-chip">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );
