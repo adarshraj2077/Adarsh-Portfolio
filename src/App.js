@@ -5,15 +5,12 @@ import Navbar from "./components/NavbarSection";
 import Hero from "./components/HeroSection";
 import About from "./components/AboutSection";
 import Skills from "./components/SkillsSection";
-import Timeline from "./components/TimelineSection";
 import Projects from "./components/ProjectsSection";
 import Contact from "./components/Contact";
 
 function App() {
   const [theme, setTheme] = useState('dark');
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
-  const [cursorHovered, setCursorHovered] = useState(false);
 
   // Toggle Theme
   const toggleTheme = () => {
@@ -38,30 +35,7 @@ function App() {
       }
     };
 
-    // Custom Cursor Position
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    // Hover detection for custom cursor
-    const handleMouseOver = (e) => {
-      if (
-        e.target.tagName === 'A' ||
-        e.target.tagName === 'BUTTON' ||
-        e.target.closest('a') ||
-        e.target.closest('button') ||
-        e.target.classList.contains('skill-chip') ||
-        e.target.closest('.glass-card')
-      ) {
-        setCursorHovered(true);
-      } else {
-        setCursorHovered(false);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
 
     // Scroll Reveal Observer
     const observer = new IntersectionObserver((entries) => {
@@ -83,8 +57,6 @@ function App() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
       observer.disconnect();
       clearTimeout(timeoutId);
     };
@@ -94,16 +66,6 @@ function App() {
     <div>
       {/* Scroll Progress */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
-
-      {/* Custom Cursor */}
-      <div 
-        className={`custom-cursor ${cursorHovered ? 'hovered' : ''}`}
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
-      <div 
-        className={`custom-cursor-ring ${cursorHovered ? 'hovered' : ''}`}
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
 
       {/* Interactive Background Blobs */}
       <div className="bg-blobs">
@@ -116,7 +78,6 @@ function App() {
       <div className="reveal-on-scroll"><Hero /></div>
       <div className="reveal-on-scroll"><About /></div>
       <div className="reveal-on-scroll"><Skills /></div>
-      <div className="reveal-on-scroll"><Timeline /></div>
       <div className="reveal-on-scroll"><Projects /></div>
       <div className="reveal-on-scroll"><Contact /></div>
     </div>

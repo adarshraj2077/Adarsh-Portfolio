@@ -33,8 +33,8 @@ function Hero() {
                 </a>
                 
                 <a 
-                    href="#resume" 
-                    download="Resume.pdf"
+                    href="/resume.pdf" 
+                    download="Adarsh_Raj_Resume.pdf"
                     style={{ 
                         padding: "15px 40px", 
                         background: "transparent", 

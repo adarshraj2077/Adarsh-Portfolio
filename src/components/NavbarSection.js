@@ -26,15 +26,14 @@ function Navbar({ toggleTheme, theme }) {
                     <li><a href="#home" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Home</a></li>
                     <li><a href="#about" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>About</a></li>
                     <li><a href="#skills" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Skills</a></li>
-                    <li><a href="#experience" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Experience</a></li>
                     <li><a href="#projects" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Projects</a></li>
                     <li><a href="#contact" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Contact</a></li>
                 </ul>
 
                 {/* Resume Download Button */}
                 <a 
-                    href="#resume" 
-                    download="Resume.pdf"
+                    href="/resume.pdf" 
+                    download="Adarsh_Raj_Resume.pdf"
                     style={{
                         padding: "8px 18px",
                         background: "transparent",
