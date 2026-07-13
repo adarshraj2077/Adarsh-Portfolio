@@ -12,7 +12,22 @@ function Navbar({ toggleTheme, theme }) {
             backdropFilter: "blur(10px)",
             borderBottom: "1px solid var(--glass-border)"
         }}>
-            <h2 className="gradient-text" style={{ fontSize: "28px" }}>Portfolio</h2>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <div style={{
+                    width: "38px",
+                    height: "38px",
+                    borderRadius: "10px",
+                    background: "var(--accent-gradient)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontWeight: "800",
+                    fontSize: "16px",
+                    color: "#060b18"
+                }}>AR</div>
+                <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "20px", fontWeight: "700", color: "var(--text-primary)" }}>Adarsh Raj</h2>
+            </div>
 
             <div style={{ display: "flex", alignItems: "center", gap: "30px" }}>
                 <ul style={{
