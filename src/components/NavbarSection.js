@@ -1,79 +1,110 @@
 function Navbar({ toggleTheme, theme }) {
+    const navLinks = [
+        { href: '#home',     label: 'Home' },
+        { href: '#about',    label: 'About' },
+        { href: '#skills',   label: 'Skills' },
+        { href: '#projects', label: 'Projects' },
+        { href: '#contact',  label: 'Contact' },
+    ];
+
     return (
         <nav style={{
-            position: "sticky",
+            position: 'sticky',
             top: 0,
             zIndex: 1000,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "20px 60px",
-            background: theme === 'dark' ? 'rgba(15, 23, 42, 0.85)' : 'rgba(248, 250, 252, 0.85)',
-            backdropFilter: "blur(10px)",
-            borderBottom: "1px solid var(--glass-border)"
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '18px 80px',
+            background: theme === 'dark'
+                ? 'rgba(8, 12, 20, 0.9)'
+                : 'rgba(240, 244, 252, 0.9)',
+            backdropFilter: 'blur(12px)',
+            borderBottom: '1px solid var(--glass-border)',
         }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            {/* Logo mark — sharp rectangle (0px radius) + monospace identity */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <div style={{
-                    width: "38px",
-                    height: "38px",
-                    borderRadius: "10px",
-                    background: "var(--accent-gradient)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    fontWeight: "800",
-                    fontSize: "16px",
-                    color: "#060b18"
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '0',           /* deliberate sharp corner */
+                    background: 'var(--signal)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: 'var(--font-mono)',
+                    fontWeight: '700',
+                    fontSize: '14px',
+                    color: 'var(--ink)',
+                    letterSpacing: '-1px',
+                    flexShrink: 0,
                 }}>AR</div>
-                <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "20px", fontWeight: "700", color: "var(--text-primary)" }}>Adarsh Raj</h2>
+                <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    color: 'var(--text-primary)',
+                    letterSpacing: '-0.5px',
+                }}>
+                    Adarsh Raj
+                </span>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "30px" }}>
+            {/* Nav links + actions */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
                 <ul style={{
-                    display: "flex",
-                    gap: "25px",
-                    listStyle: "none",
+                    display: 'flex',
+                    gap: '28px',
+                    listStyle: 'none',
                     margin: 0,
                     padding: 0,
-                    alignItems: "center"
+                    alignItems: 'center',
                 }}>
-                    <li><a href="#home" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Home</a></li>
-                    <li><a href="#about" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>About</a></li>
-                    <li><a href="#skills" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Skills</a></li>
-                    <li><a href="#projects" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Projects</a></li>
-                    <li><a href="#contact" style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, transition: "color 0.3s" }} onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>Contact</a></li>
+                    {navLinks.map(link => (
+                        <li key={link.href}>
+                            <a href={link.href} className="nav-link">{link.label}</a>
+                        </li>
+                    ))}
                 </ul>
 
-                {/* Resume Download Button */}
-                <a 
-                    href="/resume.pdf" 
+                {/* Resume button — sharp corners matching logo */}
+                <a
+                    href="/resume.pdf"
                     download="Adarsh_Raj_Resume.pdf"
                     style={{
-                        padding: "8px 18px",
-                        background: "transparent",
-                        border: "1px solid var(--accent-color)",
-                        color: "var(--accent-color)",
-                        borderRadius: "20px",
-                        textDecoration: "none",
-                        fontWeight: 600,
-                        fontSize: "14px",
-                        transition: "all 0.3s"
+                        padding: '8px 18px',
+                        background: 'transparent',
+                        border: '1px solid var(--signal)',
+                        color: 'var(--signal)',
+                        borderRadius: '4px',
+                        textDecoration: 'none',
+                        fontWeight: '600',
+                        fontSize: '13px',
+                        fontFamily: 'var(--font-mono)',
+                        letterSpacing: '0.04em',
+                        transition: 'all 0.2s',
                     }}
                     onMouseOver={(e) => {
-                        e.target.style.background = "var(--accent-gradient)";
-                        e.target.style.color = "white";
+                        e.currentTarget.style.background = 'var(--signal)';
+                        e.currentTarget.style.color = 'var(--ink)';
                     }}
                     onMouseOut={(e) => {
-                        e.target.style.background = "transparent";
-                        e.target.style.color = "var(--accent-color)";
+                        e.currentTarget.style.background = 'transparent';
+                        e.currentTarget.style.color = 'var(--signal)';
                     }}
                 >
-                    Resume
+                    resume.pdf
                 </a>
 
-                {/* Dark/Light Toggle Switch */}
-                <div className="theme-toggle-container" onClick={toggleTheme}>
+                {/* Theme toggle */}
+                <div
+                    className="theme-toggle-container"
+                    onClick={toggleTheme}
+                    role="button"
+                    aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                    tabIndex={0}
+                    onKeyDown={(e) => e.key === 'Enter' && toggleTheme()}
+                >
                     <div className="theme-toggle-track">
                         <div className="theme-toggle-thumb">
                             {theme === 'dark' ? '🌙' : '☀️'}

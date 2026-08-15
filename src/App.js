@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-import Navbar from "./components/NavbarSection";
-import Hero from "./components/HeroSection";
-import About from "./components/AboutSection";
-import Skills from "./components/SkillsSection";
+import Navbar   from "./components/NavbarSection";
+import Hero     from "./components/HeroSection";
+import About    from "./components/AboutSection";
+import Skills   from "./components/SkillsSection";
+import Timeline from "./components/TimelineSection";
 import Projects from "./components/ProjectsSection";
-import Contact from "./components/Contact";
+import Contact  from "./components/Contact";
 
 function App() {
   const [theme, setTheme] = useState('dark');
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Toggle Theme
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
   useEffect(() => {
-    // Add/remove light-theme class
     if (theme === 'light') {
       document.body.classList.add('light-theme');
     } else {
@@ -27,38 +26,37 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    // Scroll Progress
+    // Scroll progress bar
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (totalScroll > 0) {
         setScrollProgress((window.scrollY / totalScroll) * 100);
       }
     };
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-    window.addEventListener('scroll', handleScroll);
+    // Scroll reveal observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
 
-    // Scroll Reveal Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    revealElements.forEach(el => observer.observe(el));
-
-    // Re-run observer after components mount to catch dynamic elements
-    const timeoutId = setTimeout(() => {
-      const elements = document.querySelectorAll('.reveal-on-scroll');
-      elements.forEach(el => observer.observe(el));
-    }, 500);
+    const observe = () => {
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    };
+    observe();
+    const t = setTimeout(observe, 600);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
-      clearTimeout(timeoutId);
+      clearTimeout(t);
     };
   }, []);
 
@@ -67,7 +65,7 @@ function App() {
       {/* Scroll Progress */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
-      {/* Interactive Background Blobs */}
+      {/* Background blobs */}
       <div className="bg-blobs">
         <div className="blob blob-1" />
         <div className="blob blob-2" />
@@ -75,9 +73,11 @@ function App() {
       </div>
 
       <Navbar toggleTheme={toggleTheme} theme={theme} />
+
       <div className="reveal-on-scroll"><Hero /></div>
       <div className="reveal-on-scroll"><About /></div>
       <div className="reveal-on-scroll"><Skills /></div>
+      <div className="reveal-on-scroll"><Timeline /></div>
       <div className="reveal-on-scroll"><Projects /></div>
       <div className="reveal-on-scroll"><Contact /></div>
     </div>

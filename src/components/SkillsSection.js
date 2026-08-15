@@ -1,47 +1,77 @@
 const skillCategories = [
     {
         title: "Programming",
-        icon: "⌨️",
+        eyebrow: "lang",
         skills: ["Python", "JavaScript", "C++", "C"],
-        chipClass: "chip-cyan"
+        chipClass: "chip-cyan",
+        accentColor: "var(--signal)",
     },
     {
         title: "Web Development",
-        icon: "🌐",
-        skills: ["React.js", "Node.js", "Django", "HTML5 / CSS3", "Full-Stack Development"],
-        chipClass: "chip-purple"
+        eyebrow: "web",
+        skills: ["React.js", "Node.js", "Django", "HTML5 / CSS3", "Full-Stack"],
+        chipClass: "chip-purple",
+        accentColor: "#a78bfa",
     },
     {
         title: "AI & Machine Learning",
-        icon: "🤖",
+        eyebrow: "ml",
         skills: ["Machine Learning", "Pandas & NumPy", "Scikit-learn", "TensorFlow"],
-        chipClass: "chip-indigo"
-    }
+        chipClass: "chip-indigo",
+        accentColor: "var(--ember)",
+    },
 ];
 
 function Skills() {
     return (
-        <section id="skills" style={{ padding: "100px 60px", textAlign: "center" }}>
+        <section id="skills" style={{ padding: '100px 80px' }}>
+            {/* Section header — left-aligned, breaking from "everything centered" */}
+            <span className="section-eyebrow">skills.stack</span>
             <h2 className="gradient-text section-title">My Skills</h2>
             <div className="section-divider" />
 
             <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "28px",
-                maxWidth: "1100px",
-                margin: "0 auto",
-                width: "100%"
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '24px',
+                maxWidth: '1100px',
             }}>
                 {skillCategories.map((category, index) => (
-                    <div key={index} className="glass-card" style={{ padding: "36px", textAlign: "left", display: "flex", flexDirection: "column" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "22px" }}>
-                            <span style={{ fontSize: "26px" }}>{category.icon}</span>
-                            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "20px", color: "var(--text-primary)", fontWeight: "700" }}>
-                                {category.title}
-                            </h3>
+                    <div
+                        key={index}
+                        className="glass-card"
+                        style={{
+                            padding: '32px',
+                            textAlign: 'left',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            borderTop: `2px solid ${category.accentColor}`,
+                        }}
+                    >
+                        {/* Category eyebrow */}
+                        <div style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '10px',
+                            color: category.accentColor,
+                            letterSpacing: '0.1em',
+                            textTransform: 'uppercase',
+                            marginBottom: '10px',
+                            opacity: 0.8,
+                        }}>
+                            {'// '}skills.{category.eyebrow}
                         </div>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+
+                        <h3 style={{
+                            fontFamily: 'var(--font-display)',
+                            fontSize: '20px',
+                            fontWeight: '700',
+                            color: 'var(--text-primary)',
+                            marginBottom: '20px',
+                        }}>
+                            {category.title}
+                        </h3>
+
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                             {category.skills.map((skill, sIndex) => (
                                 <span key={sIndex} className={`skill-chip ${category.chipClass}`}>
                                     {skill}
@@ -51,8 +81,17 @@ function Skills() {
                     </div>
                 ))}
             </div>
+
+            {/* Hairline decorative rule */}
+            <div style={{
+                marginTop: '64px',
+                height: '1px',
+                background: 'linear-gradient(to right, var(--signal), transparent)',
+                maxWidth: '400px',
+                opacity: 0.3,
+            }} />
         </section>
     );
 }
 
-export default Skills;
+export default Skills;
