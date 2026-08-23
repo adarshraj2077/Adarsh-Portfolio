@@ -826,3 +826,17 @@ body, nav, section, .glass-card, .terminal-card {
   /* Hero name size */
   #home h1 { font-size: 44px !important; }
 }
+
+/* Projects featured card — tablet collapse */
+@media (max-width: 900px) {
+  #projects > div[style*="grid-template-columns: 1fr 1.6fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #projects > div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  #projects .glass-card > div[style*="border-right"] {
+    border-right: none !important;
+    border-bottom: 1px solid var(--glass-border);
+  }
+}
