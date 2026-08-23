@@ -34,13 +34,12 @@ const socials = [
 ];
 
 const metrics = [
-    { value: '10+',  label: 'GitHub Repos' },       // TODO: verify at github.com/adarshraj2077
-    { value: '3',    label: 'Projects Built' },
-    { value: '150+', label: 'LeetCode Solved' },     // TODO: update with actual count
-    { value: 'MUJ',  label: 'B.Tech AI & ML' },
+    { value: '3',   label: 'GitHub Repos' },
+    { value: '5',   label: 'Projects Built' },
+    { value: '60',  label: 'LeetCode Solved' },
+    { value: 'ONGC', label: 'Interned At' },
 ];
 
-// Detect if device likely has low performance (mobile + no hover = touch device)
 const isTouchDevice = () =>
     typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
 
@@ -74,7 +73,7 @@ function Hero() {
         >
             {/* ─── LEFT COLUMN: Text content ─────────────────────────── */}
             <div style={{ position: 'relative', zIndex: 1 }}>
-                {/* Eyebrow tag — sharp left-border, mono font */}
+                {/* Eyebrow tag */}
                 <div className="hero-tag">AI &amp; Full-Stack Developer</div>
 
                 {/* Name — Syne display face */}
@@ -118,18 +117,20 @@ function Hero() {
                         marginBottom: '40px',
                     }}
                 >
-                    I train ML models that actually ship — from{' '}
+                    CS undergraduate with hands-on experience in{' '}
                     <span style={{ color: 'var(--text-primary)', fontWeight: '500' }}>
-                        CNNs for wildfire prediction
-                    </span>{' '}
-                    to production full-stack apps like{' '}
+                        Python, React, Django, and AI/ML
+                    </span>
+                    . Built production apps like{' '}
                     <a
                         href="#studytree-project"
                         style={{ color: 'var(--signal)', fontWeight: '600', textDecoration: 'none', borderBottom: '1px solid rgba(0,229,204,0.3)' }}
                     >
                         StudyTree
-                    </a>
-                    . Specialising in AI/ML &amp; full-stack engineering.
+                    </a>{' '}
+                    and interned at{' '}
+                    <span style={{ color: 'var(--text-primary)', fontWeight: '500' }}>ONGC</span>.
+                    Seeking Software Development, AI Engineering, or Full-Stack roles.
                 </p>
 
                 {/* CTA Buttons */}
@@ -163,7 +164,7 @@ function Hero() {
                     </span>
                 </div>
 
-                {/* Metrics Strip — terminal-card style */}
+                {/* Metrics Strip */}
                 <div className="metrics-strip">
                     {metrics.map((m, i) => (
                         <div key={i} className="metric-item">
@@ -222,7 +223,6 @@ function Hero() {
     );
 }
 
-// Static SVG fallback for reduced-motion / touch devices
 function StaticNetworkFallback() {
     return (
         <svg
@@ -232,14 +232,12 @@ function StaticNetworkFallback() {
             style={{ opacity: 0.15, position: 'absolute', inset: 0 }}
             aria-hidden="true"
         >
-            {/* Nodes */}
             {[
                 [200, 200], [80, 100], [320, 90], [60, 280], [340, 270],
                 [160, 320], [260, 50], [120, 180], [300, 180], [200, 80],
             ].map(([cx, cy], i) => (
                 <circle key={i} cx={cx} cy={cy} r={i === 0 ? 8 : 4} fill="#00E5CC" />
             ))}
-            {/* Lines */}
             {[
                 [200,200,80,100], [200,200,320,90], [200,200,60,280],
                 [200,200,340,270], [200,200,160,320], [200,200,260,50],

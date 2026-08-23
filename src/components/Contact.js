@@ -97,7 +97,6 @@ function Contact() {
     return (
         <section id="contact" style={{ padding: '100px 80px 0' }}>
             {/* Section header */}
-            <span className="section-eyebrow">contact.send_message</span>
             <h2 className="gradient-text section-title">Get In Touch</h2>
             <div className="section-divider" />
 

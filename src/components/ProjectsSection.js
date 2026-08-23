@@ -1,46 +1,58 @@
 import { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 
-// Detect touch / no-hover devices to disable tilt
 const noHover = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
 
 const projectsList = [
     {
         id: 1,
-        title: "Deepfake Audio Detection",
-        emoji: "🎙️",
-        accentColor: "var(--ember)",
-        accentRgb: "255, 107, 53",
-        description: "Real-time AI agent that detects AI-generated (deepfake) audio with MCP tool integration and explainable confidence scores.",
-        details: "An agentic AI system for detecting deepfake/AI-generated audio. Built with a custom MCP server exposing analysis tools, a LangGraph-powered agent that reasons step-by-step, and a Flask web interface. Uses RawNet2/MFCC feature extraction with a deep learning classifier trained on ASVspoof2019.",
-        techStack: ["Python", "Flask", "LangGraph", "MCP", "PyTorch", "MFCC"],
-        challenges: "Designing an agent reasoning loop that produces meaningful explanations (not just a binary label), and achieving low latency inference on audio streams while the LangGraph agent chain runs concurrently.",
+        title: "ScrapeFlow – Job Aggregation Platform",
+        emoji: "⚙️",
+        accentColor: "var(--signal)",
+        accentRgb: "0, 229, 204",
+        description: "Full-stack data scraping and job aggregation platform integrating Adzuna, Jooble, JSearch, and SerpAPI with job normalization and provider-priority ranking.",
+        details: "Developed at Karmaa Lab & Plausibility Solutions. Built using Django, DRF, React, Vite, Tailwind CSS, and SQLite. Integrated multiple job APIs with normalization, deduplication, and provider-priority ranking. Built automated college, company, and LinkedIn scraping workflows with structured data extraction and JD matching. REST APIs and dashboard features for scraper management, search history, and centralized data storage.",
+        techStack: ["Django", "DRF", "React", "Vite", "Tailwind CSS", "SQLite", "REST API"],
+        challenges: "Integrating multiple job APIs with conflicting data schemas and implementing deduplication logic across providers while maintaining fast response times.",
         liveLink: "#",
         isStrongest: false,
     },
     {
         id: 2,
-        title: "StudyTree — AI Study Assistant",
+        title: "StudyTree – AI Study Assistant",
         emoji: "📚",
         accentColor: "var(--signal)",
         accentRgb: "0, 229, 204",
-        description: "Full-stack AI study hub: calendar, tasks, smart flashcard generation, and a chatbot that parses your course syllabus PDFs.",
-        details: "StudyTree is a production-deployed full-stack app giving students a single workspace for study management. It integrates calendar, task management, AI flashcard generation (OpenAI API), and an interactive chatbot that parses multi-page course syllabus PDFs to answer context-aware questions.",
+        description: "Responsive React.js frontend for an AI-powered student assistant platform with study-organization features including calendar, tasks, and AI flashcard generation.",
+        details: "StudyTree is a production-deployed full-stack app giving students a single workspace for study management. Features calendar, task management, AI flashcard generation (OpenAI API), and an interactive chatbot that parses multi-page course syllabus PDFs to answer context-aware questions.",
         techStack: ["React.js", "Node.js", "Express", "MongoDB", "OpenAI API"],
         challenges: "Designing context-aware chatbot memory while maintaining fast response times and ensuring secure parsing of multi-page user PDFs at scale.",
         liveLink: "https://study-tree-one.vercel.app/",
-        isStrongest: true,   // "View My Work" anchor lands here
+        isStrongest: true,
     },
     {
         id: 3,
-        title: "Wildfire Prediction via CNN",
+        title: "Wildfire Prediction via Deep Learning",
         emoji: "🔥",
         accentColor: "#8b5cf6",
         accentRgb: "139, 92, 246",
-        description: "CNN model predicting wildfire risk from satellite imagery and environmental variables, with real-time GIS mapping.",
-        details: "An advanced Deep Learning project using convolutional neural networks to process satellite raster imagery and weather variables for wildfire risk assessment. Integrated GIS coordinates to map high-risk areas in real-time, handling imbalanced wildfire vs non-wildfire datasets.",
-        techStack: ["Python", "TensorFlow", "Keras", "GDAL", "GIS"],
-        challenges: "Handling highly imbalanced datasets (few wildfire events vs. many non-events) and processing massive satellite raster files efficiently in memory.",
+        description: "CNN-based wildfire prediction model using Python, TensorFlow, Pandas, and NumPy. Achieved 88.73% validation accuracy through hyperparameter tuning.",
+        details: "Developed a CNN-based wildfire prediction model by processing and analyzing environmental datasets through feature engineering and data preprocessing. Applied hyperparameter tuning to optimize model performance and achieved 88.73% validation accuracy. Integrated GIS coordinates for real-time high-risk area mapping.",
+        techStack: ["Python", "TensorFlow", "Keras", "Pandas", "NumPy", "GIS"],
+        challenges: "Handling highly imbalanced datasets (few wildfire events vs. many non-events) and processing large environmental raster files efficiently in memory.",
+        liveLink: "#",
+        isStrongest: false,
+    },
+    {
+        id: 4,
+        title: "LiveKit Meet – Video Conferencing App",
+        emoji: "🎥",
+        accentColor: "var(--ember)",
+        accentRgb: "255, 107, 53",
+        description: "Customized an existing LiveKit-based video conferencing platform using Next.js and TypeScript with company-specific meeting UI and administrative functionality.",
+        details: "Customized a LiveKit-based video conferencing platform using Next.js and TypeScript to meet company-specific meeting requirements. Developed and integrated custom meeting UI, controls, and administrative functionality on top of the existing LiveKit infrastructure. Built during internship at Karmaa Lab & Plausibility Solutions.",
+        techStack: ["Next.js", "TypeScript", "LiveKit", "React"],
+        challenges: "Extending an existing LiveKit infrastructure without breaking core functionality while adding company-specific meeting controls and admin features.",
         liveLink: "#",
         isStrongest: false,
     },
@@ -56,8 +68,6 @@ function Projects() {
 
     return (
         <section id="projects" style={{ padding: '100px 80px', maxWidth: '1200px', margin: '0 auto' }}>
-            {/* Section header — left-aligned */}
-            <span className="section-eyebrow">projects.featured</span>
             <h2 className="gradient-text section-title">Featured Projects</h2>
             <div className="section-divider" />
 
@@ -98,7 +108,6 @@ function Projects() {
                             role="button"
                             aria-label={`View details for ${project.title}`}
                         >
-                            {/* Glow accent */}
                             <div style={{
                                 position: 'absolute', top: 0, right: 0,
                                 width: '140px', height: '140px',
@@ -121,7 +130,6 @@ function Projects() {
                                 {project.description}
                             </p>
 
-                            {/* Tech chips */}
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '24px' }}>
                                 {project.techStack.slice(0, 3).map((t, i) => (
                                     <span key={i} style={{
@@ -204,7 +212,7 @@ function Projects() {
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.1em',
                             }}>
-                                {'// Overview'}
+                                Overview
                             </h4>
                             <p style={{ color: 'var(--text-primary)', lineHeight: '1.8', marginBottom: '24px', opacity: 0.9 }}>
                                 {selectedProject.details}
@@ -218,7 +226,7 @@ function Projects() {
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.1em',
                             }}>
-                                {'// Key Challenge'}
+                                Key Challenge
                             </h4>
                             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '24px' }}>
                                 {selectedProject.challenges}
@@ -232,7 +240,7 @@ function Projects() {
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.1em',
                             }}>
-                                {'// Tech Stack'}
+                                Tech Stack
                             </h4>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
                                 {selectedProject.techStack.map((tech, idx) => (

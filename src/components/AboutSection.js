@@ -1,24 +1,24 @@
 function About() {
     const terminalLines = [
         { key: 'university',  val: 'Manipal University Jaipur' },
-        { key: 'degree',      val: 'BTech CSE (AI & ML) · 2023–2027' },
-        { key: 'focus',       val: '["Deep Learning", "Full-Stack", "Agents"]' },
-        { key: 'languages',   val: 'Python, JavaScript, C++' },
+        { key: 'degree',      val: 'B.Tech CSE (AI & ML) · 2023–2027' },
+        { key: 'focus',       val: '["Deep Learning", "Full-Stack", "REST APIs"]' },
+        { key: 'languages',   val: 'Python, JavaScript, C++, C, SQL' },
         { key: 'frameworks',  val: 'React, Django, Node.js, TensorFlow' },
-        { key: 'status',      val: '"Open to internships & projects"' },
+        { key: 'databases',   val: 'SQLite, MySQL' },
+        { key: 'experience',  val: 'ONGC Intern · Junior AI Engineer @ Karmaa Lab' },
+        { key: 'status',      val: '"Open to SDE / AI / Full-Stack roles"' },
     ];
 
     const highlights = [
-        { icon: "🤖", label: "AI & ML",        sub: "Deep Learning, CNNs, NLP" },
-        { icon: "🌐", label: "Full-Stack",      sub: "React · Node.js · Django" },
-        { icon: "🔬", label: "Research-minded", sub: "Wildfire prediction, Deepfake AI" },
+        { icon: "🤖", label: "AI & ML",        sub: "Deep Learning, CNNs, TensorFlow" },
+        { icon: "🌐", label: "Full-Stack",      sub: "React · Django · Node.js" },
+        { icon: "🔬", label: "Research-minded", sub: "Wildfire prediction · Deepfake AI" },
         { icon: "🏆", label: "Builder",         sub: "Ships production apps" },
     ];
 
     return (
         <section id="about" style={{ padding: '100px 80px' }}>
-            {/* Section header */}
-            <span className="section-eyebrow">about.me</span>
             <h2 className="gradient-text section-title">About Me</h2>
             <div className="section-divider" />
 
@@ -39,18 +39,21 @@ function About() {
                         marginBottom: '28px',
                     }}>
                         <p style={{ fontSize: '17px', color: 'var(--text-primary)', lineHeight: '1.9', marginBottom: '20px' }}>
-                            Aspiring SDE passionate about{' '}
+                            Computer Science (AI &amp; ML) undergraduate at{' '}
                             <span style={{ color: 'var(--signal)', fontWeight: '600' }}>
-                                AI and Machine Learning
-                            </span>
-                            . I build systems that go beyond demos — from training CNNs on satellite raster data to shipping full-stack apps used by real students.
+                                Manipal University Jaipur
+                            </span>{' '}
+                            with hands-on experience in Python, React.js, Django, SQL, and AI/ML development.
                         </p>
                         <p style={{ fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.9' }}>
-                            Skilled in Python, Django, React, and SQL. Quick learner with a bias for{' '}
-                            <span style={{ color: '#a78bfa', fontWeight: '600' }}>
-                                building things that work in production
+                            Built deep-learning and web-based applications using TensorFlow, React, and Node.js.
+                            Previously interned at{' '}
+                            <span style={{ color: '#a78bfa', fontWeight: '600' }}>ONGC</span>{' '}
+                            and worked as a{' '}
+                            <span style={{ color: 'var(--ember)', fontWeight: '600' }}>
+                                Junior AI Engineer at Karmaa Lab &amp; Plausibility Solutions
                             </span>
-                            , not just in notebooks.
+                            , where I built ScrapeFlow — a full-stack data scraping and job aggregation platform.
                         </p>
                     </div>
 

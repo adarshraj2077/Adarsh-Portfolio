@@ -1,22 +1,19 @@
 const skillCategories = [
     {
-        title: "Programming",
-        eyebrow: "lang",
-        skills: ["Python", "JavaScript", "C++", "C"],
+        title: "Programming Languages",
+        skills: ["Python", "JavaScript", "C++", "C", "SQL"],
         chipClass: "chip-cyan",
         accentColor: "var(--signal)",
     },
     {
-        title: "Web Development",
-        eyebrow: "web",
-        skills: ["React.js", "Node.js", "Django", "HTML5 / CSS3", "Full-Stack"],
+        title: "Frameworks & Libraries",
+        skills: ["React.js", "Node.js", "Django", "REST API", "TensorFlow", "Pandas & NumPy"],
         chipClass: "chip-purple",
         accentColor: "#a78bfa",
     },
     {
-        title: "AI & Machine Learning",
-        eyebrow: "ml",
-        skills: ["Machine Learning", "Pandas & NumPy", "Scikit-learn", "TensorFlow"],
+        title: "Databases & Tools",
+        skills: ["SQLite", "MySQL", "Git", "GitHub", "VS Code"],
         chipClass: "chip-indigo",
         accentColor: "var(--ember)",
     },
@@ -25,8 +22,6 @@ const skillCategories = [
 function Skills() {
     return (
         <section id="skills" style={{ padding: '100px 80px' }}>
-            {/* Section header — left-aligned, breaking from "everything centered" */}
-            <span className="section-eyebrow">skills.stack</span>
             <h2 className="gradient-text section-title">My Skills</h2>
             <div className="section-divider" />
 
@@ -48,19 +43,6 @@ function Skills() {
                             borderTop: `2px solid ${category.accentColor}`,
                         }}
                     >
-                        {/* Category eyebrow */}
-                        <div style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '10px',
-                            color: category.accentColor,
-                            letterSpacing: '0.1em',
-                            textTransform: 'uppercase',
-                            marginBottom: '10px',
-                            opacity: 0.8,
-                        }}>
-                            {'// '}skills.{category.eyebrow}
-                        </div>
-
                         <h3 style={{
                             fontFamily: 'var(--font-display)',
                             fontSize: '20px',
@@ -82,9 +64,40 @@ function Skills() {
                 ))}
             </div>
 
-            {/* Hairline decorative rule */}
+            {/* Certifications strip */}
+            <div style={{ marginTop: '48px', maxWidth: '1100px' }}>
+                <h3 style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '22px',
+                    fontWeight: '700',
+                    color: 'var(--text-primary)',
+                    marginBottom: '16px',
+                }}>
+                    Certifications
+                </h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                    {[
+                        'NPTEL – Deep Learning (Elite Certification)',
+                        'Python Essentials 1 – Cisco Networking Academy & OpenEDG',
+                        'Python Essentials 2 – Cisco Networking Academy & OpenEDG',
+                    ].map((cert, i) => (
+                        <div key={i} className="glass-card" style={{
+                            padding: '12px 20px',
+                            fontSize: '13px',
+                            color: 'var(--text-secondary)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                        }}>
+                            <span style={{ color: 'var(--signal)', fontSize: '16px' }}>✦</span>
+                            {cert}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
             <div style={{
-                marginTop: '64px',
+                marginTop: '48px',
                 height: '1px',
                 background: 'linear-gradient(to right, var(--signal), transparent)',
                 maxWidth: '400px',

@@ -5,7 +5,6 @@ import Navbar   from "./components/NavbarSection";
 import Hero     from "./components/HeroSection";
 import About    from "./components/AboutSection";
 import Skills   from "./components/SkillsSection";
-import Timeline from "./components/TimelineSection";
 import Projects from "./components/ProjectsSection";
 import Contact  from "./components/Contact";
 
@@ -77,7 +76,6 @@ function App() {
       <div className="reveal-on-scroll"><Hero /></div>
       <div className="reveal-on-scroll"><About /></div>
       <div className="reveal-on-scroll"><Skills /></div>
-      <div className="reveal-on-scroll"><Timeline /></div>
       <div className="reveal-on-scroll"><Projects /></div>
       <div className="reveal-on-scroll"><Contact /></div>
     </div>
