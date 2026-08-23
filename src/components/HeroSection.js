@@ -37,7 +37,7 @@ const metrics = [
     { value: '3', label: 'GitHub Repos' },
     { value: '5', label: 'Projects Built' },
     { value: '60', label: 'LeetCode Solved' },
-    { value: 'ONGC', label: 'Interned At' },
+    { value: 'KLPS', label: 'Interned At' },
 ];
 
 const isTouchDevice = () =>
