@@ -1,20 +1,20 @@
 function About() {
     const terminalLines = [
-        { key: 'university',  val: 'Manipal University Jaipur' },
-        { key: 'degree',      val: 'B.Tech CSE (AI & ML) · 2023–2027' },
-        { key: 'focus',       val: '["Deep Learning", "Full-Stack", "REST APIs"]' },
-        { key: 'languages',   val: 'Python, JavaScript, C++, C, SQL' },
-        { key: 'frameworks',  val: 'React, Django, Node.js, TensorFlow' },
-        { key: 'databases',   val: 'SQLite, MySQL' },
-        { key: 'experience',  val: 'ONGC Intern · Junior AI Engineer @ Karmaa Lab' },
-        { key: 'status',      val: '"Open to SDE / AI / Full-Stack roles"' },
+        { key: 'university', val: 'Manipal University Jaipur' },
+        { key: 'degree', val: 'B.Tech CSE (AI & ML) · 2023–2027' },
+        { key: 'focus', val: '["Deep Learning", "Full-Stack", "REST APIs"]' },
+        { key: 'languages', val: 'Python, JavaScript, C++, C, SQL' },
+        { key: 'frameworks', val: 'React, Django, Node.js, TensorFlow' },
+        { key: 'databases', val: 'SQLite, MySQL' },
+        { key: 'experience', val: 'ONGC Intern · Junior AI Engineer @ Karmaa Lab' },
+        { key: 'status', val: '"Open to SDE / AI / Full-Stack roles"' },
     ];
 
     const highlights = [
-        { icon: "🤖", label: "AI & ML",        sub: "Deep Learning, CNNs, TensorFlow" },
-        { icon: "🌐", label: "Full-Stack",      sub: "React · Django · Node.js" },
+        { icon: "🤖", label: "AI & ML", sub: "Deep Learning, CNNs, TensorFlow" },
+        { icon: "🌐", label: "Full-Stack", sub: "React · Django · Node.js" },
         { icon: "🔬", label: "Research-minded", sub: "Wildfire prediction · Deepfake AI" },
-        { icon: "🏆", label: "Builder",         sub: "Ships production apps" },
+        { icon: "🏆", label: "Builder", sub: "Ships production apps" },
     ];
 
     return (
@@ -49,11 +49,11 @@ function About() {
                             Built deep-learning and web-based applications using TensorFlow, React, and Node.js.
                             Previously interned at{' '}
                             <span style={{ color: '#a78bfa', fontWeight: '600' }}>ONGC</span>{' '}
-                            and worked as a{' '}
+                            and at KLPS and worked as a{' '}
                             <span style={{ color: 'var(--ember)', fontWeight: '600' }}>
                                 Junior AI Engineer at Karmaa Lab &amp; Plausibility Solutions
                             </span>
-                            , where I built ScrapeFlow — a full-stack data scraping and job aggregation platform.
+                            , where I built ScrapeFlow — a full-stack data scraping and job aggregation platform and many more projects.
                         </p>
                     </div>
 
